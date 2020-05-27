@@ -24,16 +24,15 @@ size_t split(const string &txt, vector<std::string> &strs, char ch)
 
     return strs.size();
 }
-void nhap(string s) {
-	getline(cin, s);
-}
+
 int main() {
 	int t; 
 	cin >> t;
 	vector<string> ss;
 	string s;
+	cin.ignore();
 	while(t--){
-		nhap(s);
+		getline(cin, s);
 		split(s,ss,' ');
 		for(int i=0;i<ss.size();i++){
 			for(int j = ss[i].size()-1;j>=0;j--){

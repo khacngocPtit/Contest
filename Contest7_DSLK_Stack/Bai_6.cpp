@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+
 int main() {
     int t; cin >> t;
     cin.ignore();
@@ -7,24 +8,27 @@ int main() {
         string s;
         getline(cin,s);
         stack<char>str;
+        int res = 0;
         bool ok = true;
-        for(int i=0;i<s.size();i++){
-            if(s[i] == ')') {
-                ok = true;
-                char top = str.top(); str.pop();
-                while(s[i]!=')'){
-                    if(s[i] == '+'|| s[i]=='i'|| s[i] == '*' || s[i] == '/') {
-                        ok = false;
-                    }
-                    top = str.top();
-                    str.pop();
-                }
+        for(int i=0;i<s.size();i++) {
+            if(s[i] == '(') {
+                str.push(i);
             }
-            else {
-                str.push(s[i]);
+            else if(s[i] == ')') {
+                if((res + 2)== i-str.top()-1) {
+                    ok = false;
+                    break;
+                }
+                else {
+                    res = max(res, i-str.top()-1);
+                }
+                str.pop();
+
+
             }
         }
-        if(ok) cout << "Yes" << endl;
+        if(!ok) cout << "Yes" << endl;
         else cout << "No" << endl;
     }
+    return 0;
 }

@@ -42,7 +42,8 @@ int main() {
             }
         }
         if(stk.size() > 0) ok = false;
-        if(ok) cout << "Yes" << endl;
-        else cout << "No" << endl;
+        if(ok) cout << "YES" << endl;
+        else cout << "NO" << endl;
     }
+    return 0;
 }
